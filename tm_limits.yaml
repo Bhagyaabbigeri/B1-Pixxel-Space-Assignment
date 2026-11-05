@@ -1,0 +1,126 @@
+# KESTREL housekeeping telemetry limits.
+# Applies to telemetry_48h.csv. A parameter is in YELLOW when it is below
+# yellow_low or above yellow_high, and in RED when below red_low or above
+# red_high. A limit that is not listed is not monitored.
+#
+# persistence_samples: a violation counts only after this many consecutive
+# samples are beyond the limit (3 samples = 30 s at the 10 s cadence).
+persistence_samples: 3
+
+parameters:
+  batt_voltage_v:
+    units: V
+    description: Battery pack voltage (4S Li-ion)
+    yellow_low: 15.4
+    yellow_high: 16.95
+    red_low: 15.0
+    red_high: 17.2
+  batt_current_a:
+    units: A
+    description: Battery current, positive = charging
+    yellow_low: -2.0
+    yellow_high: 2.0
+    red_low: -3.0
+    red_high: 3.0
+  batt_soc_pct:
+    units: '%'
+    description: Battery state of charge (coulomb counter)
+    yellow_low: 70.0
+    red_low: 60.0
+  batt_temp_c:
+    units: degC
+    description: Battery pack temperature
+    yellow_low: 5.0
+    yellow_high: 30.0
+    red_low: 0.0
+    red_high: 40.0
+  sa_current_a:
+    units: A
+    description: Total solar array current (0 in eclipse)
+    yellow_high: 2.8
+    red_high: 3.2
+  bus_voltage_v:
+    units: V
+    description: Regulated main bus voltage
+    yellow_low: 27.5
+    yellow_high: 28.5
+    red_low: 27.0
+    red_high: 29.0
+  obc_temp_c:
+    units: degC
+    description: On-board computer board temperature
+    yellow_low: 5.0
+    yellow_high: 45.0
+    red_low: 0.0
+    red_high: 55.0
+  obc_boot_count:
+    units: count
+    description: OBC boot counter; any increment is a reset
+  mem_used_pct:
+    units: '%'
+    description: Mass memory used (payload + stored TM)
+    yellow_high: 85.0
+    red_high: 95.0
+  pay_temp_c:
+    units: degC
+    description: Hyperspectral payload focal plane temperature
+    yellow_low: 0.0
+    yellow_high: 40.0
+    red_low: -10.0
+    red_high: 45.0
+  heater_a:
+    units: A
+    description: Battery heater current (thermostat controlled)
+    yellow_high: 1.2
+    red_high: 1.5
+  gyro_x_dps:
+    units: deg/s
+    description: Body rate, X axis
+    yellow_low: -1.0
+    yellow_high: 1.0
+    red_low: -2.0
+    red_high: 2.0
+  gyro_y_dps:
+    units: deg/s
+    description: Body rate, Y axis
+    yellow_low: -1.0
+    yellow_high: 1.0
+    red_low: -2.0
+    red_high: 2.0
+  gyro_z_dps:
+    units: deg/s
+    description: Body rate, Z axis
+    yellow_low: -1.0
+    yellow_high: 1.0
+    red_low: -2.0
+    red_high: 2.0
+  att_err_deg:
+    units: deg
+    description: Attitude error vs commanded attitude
+    yellow_high: 0.5
+    red_high: 2.0
+  rw_speed_rpm:
+    units: rpm
+    description: Reaction wheel speed (momentum wheel, Y axis)
+    yellow_low: 800.0
+    yellow_high: 3000.0
+    red_low: 300.0
+    red_high: 5000.0
+
+# Discrete parameters: expected values only, no limits.
+states:
+  mode:
+    description: Spacecraft mode
+    values: [NOMINAL, SAFE]
+  eclipse:
+    description: 1 = spacecraft in Earth shadow
+    values: [0, 1]
+  pay_state:
+    description: Payload state
+    values: ['OFF', STANDBY, IMAGING]
+  rx_lock:
+    description: 1 = S-band receiver locked on an uplink carrier
+    values: [0, 1]
+  tx_state:
+    description: S-band transmitter
+    values: ['OFF', 'ON']
