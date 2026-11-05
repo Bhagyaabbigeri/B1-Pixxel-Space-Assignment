@@ -119,15 +119,4 @@ python b1_telemetry_analysis.py
 
 ---
 
-## 6. Pushing This Folder to GitHub
-
-Run these commands inside your terminal (`PS D:\B1-Pixxel-Space-Assignment>`) to push the complete repository to GitHub:
-
-```powershell
-git init
-git add b1_telemetry_analysis.py B1-report.md telemetry_48h.csv tm_limits.yaml fig1_power_heater_soc.png fig2_payload_thermal_spike.png fig3_obc_reboot_safemode.png README.md
-git commit -m "Add KESTREL-4 B1 telemetry analysis script, anomaly report, plots, and README"
-git branch -M main
-git remote add origin https://github.com/Bhagyaabbigeri/B1-Pixxel-Space-Assignment.git
-git push -u origin main
-```
+*Bhagyashree Reddy · Pixxel Mission Operations · Assignment B1*
