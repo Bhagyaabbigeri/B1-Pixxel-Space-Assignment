@@ -25,7 +25,7 @@ Every file in this repository maps directly to the B1 deliverables:
 ```text
 B1-Pixxel-Space-Assignment/
 ├── b1_telemetry_analysis.py        # One-run Python script that cleans data, prints stats, and builds all PNG plots
-├── B1-MD.md                        # Complete written Anomaly Report & Decision Record (submitted on portal)
+├── B1-report.md                        # Complete written Anomaly Report & Decision Record (submitted on portal)
 ├── telemetry_48h.csv               # Raw 48-hour KESTREL-4 housekeeping telemetry dataset (17,134 rows, untouched)
 ├── tm_limits.yaml                  # Yellow/Red telemetry threshold definitions and 3-sample persistence rules
 ├── fig1_power_heater_soc.png       # Output Plot 1: Stuck battery heater (SE-1), sensor flatline (DQ-3) & SoC drain
@@ -125,7 +125,7 @@ Run these commands inside your terminal (`PS D:\B1-Pixxel-Space-Assignment>`) to
 
 ```powershell
 git init
-git add b1_telemetry_analysis.py B1-MD.md telemetry_48h.csv tm_limits.yaml fig1_power_heater_soc.png fig2_payload_thermal_spike.png fig3_obc_reboot_safemode.png README.md
+git add b1_telemetry_analysis.py B1-report.md telemetry_48h.csv tm_limits.yaml fig1_power_heater_soc.png fig2_payload_thermal_spike.png fig3_obc_reboot_safemode.png README.md
 git commit -m "Add KESTREL-4 B1 telemetry analysis script, anomaly report, plots, and README"
 git branch -M main
 git remote add origin https://github.com/Bhagyaabbigeri/B1-Pixxel-Space-Assignment.git
